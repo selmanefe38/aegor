@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEGOR - Resmi Web Sitesi</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #0055ff;
+      --deep-blue: #0033aa;
+      --gold: #ffcc00;
+      --gold-dark: #d4a000;
+      --bg-dark: #0a0d14;
+      --card-bg: #121824;
+      --text-light: #ffffff;
+      --text-muted: #a0aec0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* HEADER & NAVIGATION */
+    header {
+      background: rgba(10, 13, 20, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 2px solid var(--primary-blue);
+      box-shadow: 0 4px 20px rgba(0, 85, 255, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-svg {
+      width: 45px;
+      height: 45px;
+    }
+
+    .logo-text {
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(0, 85, 255, 0.8);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--primary-blue);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(0, 85, 255, 0.6);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      margin-top: 80px;
+      background: linear-gradient(135deg, #0044cc 0%, #001133 100%);
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .hero-banner {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #0055ff;
+      border: 4px solid var(--gold);
+      border-radius: 16px;
+      padding: 40px 20px;
+      box-shadow: 0 0 30px rgba(0, 85, 255, 0.5);
+    }
+
+    .hero-logo-svg {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+    }
+
+    /* CONTENT SECTIONS */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .page-section {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 2px solid var(--primary-blue);
+      padding-bottom: 10px;
+    }
+
+    .sub-title {
+      color: var(--gold);
+      font-size: 22px;
+      margin: 25px 0 15px 0;
+      border-left: 4px solid var(--primary-blue);
+      padding-left: 10px;
+    }
+
+    /* CARD STYLES */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 85, 255, 0.3);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* LAUNCHER BUTTON */
+    .launcher-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn-launcher {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--primary-blue), var(--deep-blue));
+      color: #fff;
+      padding: 15px 35px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 20px rgba(0, 85, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-launcher:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 204, 0, 0.6);
+    }
+
+    .launcher-note {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* BİLGİLENDİRME METNİ CARD */
+    .info-box {
+      border-left: 5px solid var(--gold);
+      background: rgba(18, 24, 36, 0.9);
+    }
+
+    .info-box h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .info-box ul {
+      margin-left: 20px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* TEAM SECTION */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .team-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 204, 0, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .team-card.ceo-card {
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+    }
+
+    .team-card.empty-card {
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      opacity: 0.7;
+    }
+
+    .team-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      border: 3px solid var(--gold);
+    }
+
+    .empty-card .team-avatar {
+      background: #1a2233;
+      border-color: var(--text-muted);
+    }
+
+    .team-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .team-role {
+      color: var(--primary-blue);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    /* PROJECTS SECTION */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(0, 85, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+
+    .project-title {
+      color: var(--gold);
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(0, 85, 255, 0.2);
+      color: var(--primary-blue);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      border: 1px solid var(--primary-blue);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #05070a;
+      border-top: 1px solid rgba(0, 85, 255, 0.2);
+      color: var(--text-muted);
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-container" onclick="showSection('home')">
+        <svg class="logo-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="#0055ff"/>
+          <path d="M 25 35 Q 20 50 35 70" fill="none" stroke="#ffcc00" stroke-width="5" stroke-linecap="round"/>
+          <path d="M 75 35 Q 80 50 65 70" fill="none" stroke="#ffcc00" stroke-width="5" stroke-linecap="round"/>
+          <text x="50" y="58" font-family="'Cinzel', serif" font-size="22" font-weight="900" fill="#000" text-anchor="middle">AEGOR</text>
+        </svg>
+        <span class="logo-text">AEGOR</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a id="nav-home" class="active" onclick="showSection('home')">Ana Sayfa</a></li>
+          <li><a id="nav-ekip" onclick="showSection('ekip')">Ekibimiz</a></li>
+          <li><a id="nav-projeler" onclick="showSection('projeler')">Projeler</a></li>
+          <li><a id="nav-iletisim" onclick="showSection('iletisim')">İletişim</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-banner">
+      <svg class="hero-logo-svg" viewBox="0 0 800 400">
+        <rect width="800" height="400" fill="#0055ff"/>
+        <g fill="#ffcc00">
+          <path d="M 180 80 C 120 150 120 280 180 340 C 130 270 130 150 180 80 Z"/>
+          <path d="M 160 100 Q 110 90 120 120 Q 140 120 160 100"/>
+          <path d="M 140 140 Q 90 140 105 170 Q 125 165 140 140"/>
+          <path d="M 130 190 Q 75 200 95 230 Q 115 220 130 190"/>
+          <path d="M 135 240 Q 85 260 110 285 Q 125 270 135 240"/>
+          <path d="M 155 285 Q 110 320 140 335 Q 150 315 155 285"/>
+        </g>
+        <g fill="#ffcc00">
+          <path d="M 620 80 C 680 150 680 280 620 340 C 670 270 670 150 620 80 Z"/>
+          <path d="M 640 100 Q 690 90 680 120 Q 660 120 640 100"/>
+          <path d="M 660 140 Q 710 140 695 170 Q 675 165 660 140"/>
+          <path d="M 670 190 Q 725 200 705 230 Q 685 220 670 190"/>
+          <path d="M 665 240 Q 715 260 690 285 Q 675 270 665 240"/>
+          <path d="M 645 285 Q 690 320 660 335 Q 650 315 645 285"/>
+        </g>
+        <text x="400" y="230" font-family="'Cinzel', serif" font-size="110" font-weight="900" fill="#000000" text-anchor="middle" letter-spacing="4">AEGOR</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+
+    <!-- 1. ANA SAYFA -->
+    <section id="home" class="page-section active">
+      <h2 class="section-title">HOŞ GELDİNİZ</h2>
+      
+      <div class="card" style="text-align: center;">
+        <p style="font-size: 18px; color: #fff;">Şirketimiz sadece benden oluştuğu için maalesef oyunlar yarım yarım çıkacak.</p>
+      </div>
+
+      <!-- LAUNCHER BUTONU -->
+      <div class="launcher-container">
+        <a href="https://www.google.com" target="_blank" class="btn-launcher">Çok Yakında Launcher'ımız</a>
+        <div class="launcher-note">Boşuna tıklama Google'a atıyor :)</div>
+      </div>
+
+      <!-- BİLGİLENDİRME METNİ -->
+      <div class="card info-box">
+        <h3>ÖNEMLİ BİLGİLENDİRME METNİ</h3>
+        <p>Merhaba,</p>
+        <p>AEGOR çatısı altında yürüttüğümüz/yürüteceğimiz projelerimiz için heyecan verici bir yola çıkıyoruz. Bu süreçte bizimle birlikte yer almak isteyen tüm ekip arkadaşlarımızın bilmesi gereken son derece önemli bir kuralı ve çalışma prensibimizi ilk günden netleştirmek istiyoruz:</p>
+        
+        <ul>
+          <li><strong>Gönüllü Başlangıç:</strong> Projelerimizin ilk aşamasında herhangi bir sabit maaş, bütçe veya fon bulunmamaktadır. Bu nedenle, şu aşamada yapacağımız tüm çalışmalar <u>tamamen ücretsiz (gönüllü)</u> olacaktır.</li>
+          <li><strong>Gelir Paylaşımı (Kâr Ortaklığı):</strong> Projelerimiz hayata geçtikten sonra eğer bir gelir, yatırım veya para akışı sağlanırsa, elde edilen bu kazanç tüm emek verenler arasında <u>hakkaniyetli bir şekilde bölüştürülecektir.</u></li>
+        </ul>
+
+        <p>Kısacası; şu an cebimizden para çıkmıyor ama hep birlikte emek veriyoruz. Yarın bir gün projemiz para kazandırmaya başladığında ise bu kazancı hep birlikte paylaşacağız.</p>
+        <p style="margin-top: 10px;">Bu şartları kabul ederek, AEGOR'un geleceğini birlikte inşa etmek ve bu riskli ama potansiyeli yüksek yolculuğa ortak olmak isteyen herkesi aramızda görmekten mutluluk duyarız.</p>
+        
+        <p style="margin-top: 15px; font-weight: bold; color: var(--gold);">Saygılarımla,<br>AEGOR Yönetimi</p>
+      </div>
+    </section>
+
+    <!-- 2. EKİBİMİZ -->
+    <section id="ekip" class="page-section">
+      <h2 class="section-title">EKİBİMİZ</h2>
+      
+      <!-- CEO KISMI -->
+      <h3 class="sub-title">Yönetim / CEO</h3>
+      <div class="team-grid">
+        <div class="team-card ceo-card">
+          <div class="team-avatar">👑</div>
+          <div class="team-name">Selman Efe Boyraz</div>
+          <div class="team-role">CEO & Kurucu</div>
+        </div>
+      </div>
+
+      <!-- ÇALIŞANLAR KISMI -->
+      <h3 class="sub-title">Çalışanlar</h3>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">💻</div>
+          <div class="team-name">Ahmet Batuhan Kurt</div>
+          <div class="team-role">Ekip Üyesi</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">⚙️</div>
+          <div class="team-name">Abdulsamet Aydoğdu</div>
+          <div class="team-role">Ekip Üyesi</div>
+        </div>
+      </div>
+
+      <!-- SİZLERİ BEKLİYORUZ (10 ADET BOŞ SLOT) -->
+      <h3 class="sub-title">Sizleri Bekliyoruz</h3>
+      <div class="team-grid">
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+        <div class="team-card empty-card"><div class="team-avatar">❓</div><div class="team-name">Boş Kontenjan</div><div class="team-role">Sizleri Bekliyoruz</div></div>
+      </div>
+    </section>
+
+    <!-- 3. PROJELER -->
+    <section id="projeler" class="page-section">
+      <h2 class="section-title">PROJELERİMİZ</h2>
+      
+      <div class="projects-grid">
+        
+        <!-- YARIM AY -->
+        <div class="project-card">
+          <span class="tag">Çok Yakında Tamamlanacak</span>
+          <h3 class="project-title">Yarım Ay</h3>
+          <p style="color: var(--gold); font-size: 13px; margin-bottom: 10px;">⚠️ İsimle dalga geçemeyiniz!</p>
+          <p style="color: var(--text-muted);">
+            Oyunumuzda tarz olarak <strong>MMO RPG</strong>'yi seçtik. Hem multiplayer hem de singleplayer seçenekleri sunan heyecan dolu projemiz çok yakında tamamlanacak.
+          </p>
+        </div>
+
+        <!-- WORLD HISTORY -->
+        <div class="project-card">
+          <span class="tag">Yapım Aşamasında</span>
+          <h3 class="project-title">World History</h3>
+          <p style="color: var(--text-muted);">
+            Oyunumuz başlıktaki gibi bir dünya tarihi oyunudur. 1913'ten itibaren başlayan haritalar ile çok gerçekçi multiplayer ve singleplayer deneyimi sunmaktadır.
+          </p>
+        </div>
+
+        <!-- ŞIRNAKCAM -->
+        <div class="project-card">
+          <span class="tag">Yapım Aşamasında</span>
+          <h3 class="project-title">Şırnakcam</h3>
+          <p style="color: var(--text-muted);">
+            Oyunumuzun isminde olduğu gibi; ya terörist olup JÖH ile ya da JÖH olup teröristler ile savaşıyorsunuz. Aksiyon dolu çatışmalar sizleri bekliyor.
+          </p>
+        </div>
+
+        <!-- AEGORCRAFT -->
+        <div class="project-card">
+          <span class="tag">Taslak Aşamasında</span>
+          <h3 class="project-title">Aegorcraft</h3>
+          <p style="color: var(--text-muted);">
+            Daha taslağını yeni attım olum ney benim geliştirici ekibim yok kendim yazıyom aynı anda veremiyoruz maalesef. Samet kod yazmaya yeltenirse belki hızlı gelebilir :)
+          </p>
+        </div>
+
+        <!-- KANLI KURULTAY -->
+        <div class="project-card">
+          <span class="tag">Yapım Aşamasında · Çok Oyunculu</span>
+          <h3 class="project-title">Kanlı Kurultay</h3>
+          <p style="color: var(--text-muted); margin-bottom: 16px;">
+            Orta çağ atmosferinde, kılıçlarla mücadele ettiğin tarayıcı tabanlı çok oyunculu arena oyunu.
+            Arenaya katıl, rakiplerinle savaş ve skor tablosunda yüksel.
+          </p>
+          <a href="http://aegorgames.duckdns.org" target="_blank" rel="noopener noreferrer" class="btn-launcher">Oyunu Oyna ↗</a>
+          <p style="color: var(--text-muted); font-size: 12px; margin-top: 10px;">aegorgames.duckdns.org</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. İLETİŞİM -->
+    <section id="iletisim" class="page-section">
+      <h2 class="section-title">İLETİŞİM</h2>
+      
+      <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <h3 style="color: var(--gold); margin-bottom: 15px;">Bizimle İletişime Geçin</h3>
+        <p style="font-size: 18px; margin-bottom: 20px;">
+          Her türlü soru, görüş ve başvurularınız için e-posta adresimiz:
+        </p>
+        <div style="background: #0055ff; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 20px; border: 2px solid var(--gold); color: #fff;">
+          sskbeyler@gmail.com
+        </div>
+        <p style="margin-top: 15px; color: var(--text-muted); font-size: 14px;">
+          Başvurularınızı ve iletilerinizi sabırsızlıkla bekliyoruz!
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 AEGOR. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(section => section.classList.remove('active'));
+
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => link.classList.remove('active'));
+
+      document.getElementById(sectionId).classList.add('active');
+      document.getElementById('nav-' + sectionId).classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
