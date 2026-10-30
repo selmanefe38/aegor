@@ -18,6 +18,7 @@
       --card-bg: #121824;
       --text-light: #ffffff;
       --text-muted: #a0aec0;
+      --green-btn: #00c853;
     }
 
     * {
@@ -283,42 +284,53 @@
     }
 
     /* PROJECTS SECTION */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-
     .project-card {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 25px;
-      border: 1px solid rgba(0, 85, 255, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-5px);
+      padding: 30px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .project-title {
       color: var(--gold);
-      font-size: 22px;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 15px;
       font-family: 'Cinzel', serif;
     }
 
     .tag {
       display: inline-block;
-      background: rgba(0, 85, 255, 0.2);
-      color: var(--primary-blue);
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      border: 1px solid var(--primary-blue);
+      background: rgba(255, 204, 0, 0.2);
+      color: var(--gold);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      border: 1px solid var(--gold);
+    }
+
+    .btn-download {
+      display: inline-block;
+      background: linear-gradient(45deg, #00c853, #00897b);
+      color: #fff;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid #69f0ae;
+      box-shadow: 0 4px 15px rgba(0, 200, 83, 0.4);
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 200, 83, 0.7);
     }
 
     /* FOOTER */
@@ -447,14 +459,14 @@
       <h3 class="sub-title">Çalışanlar</h3>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-avatar">💻</div>
+          <div class="team-avatar">⭐</div>
           <div class="team-name">Ahmet Batuhan Kurt</div>
-          <div class="team-role">Ekip Üyesi</div>
+          <div class="team-role">Kıdemli Üye</div>
         </div>
         <div class="team-card">
           <div class="team-avatar">⚙️</div>
           <div class="team-name">Abdulsamet Aydoğdu</div>
-          <div class="team-role">Ekip Üyesi</div>
+          <div class="team-role">Ekip Üyesi (Cezalı: Garı kız peşinde koşmaktan şirketi astı!)</div>
         </div>
       </div>
 
@@ -474,61 +486,28 @@
       </div>
     </section>
 
-    <!-- 3. PROJELER -->
+    <!-- 3. PROJELER (SADECE NEON VOID) -->
     <section id="projeler" class="page-section">
       <h2 class="section-title">PROJELERİMİZ</h2>
       
-      <div class="projects-grid">
+      <div class="project-card">
+        <span class="tag">İlk Resmi Oyunumuz</span>
+        <h3 class="project-title">Neon Void</h3>
+        <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 16px;">
+          Aegor’un sıfırdan tamamen kodla geliştirdiği, dışarıdan hazır görsel veya ses dosyası kullanmadan hazırladığı epik neon uzay savaşı oyunu! 
+          Zengin düşman çeşitliliği, 7 dev boss, synth ses motoru, bloom efektleri ve 1v1 düello / puan yarışı gibi çevrimiçi modlar içerir.
+        </p>
         
-        <!-- YARIM AY -->
-        <div class="project-card">
-          <span class="tag">Çok Yakında Tamamlanacak</span>
-          <h3 class="project-title">Yarım Ay</h3>
-          <p style="color: var(--gold); font-size: 13px; margin-bottom: 10px;">⚠️ İsimle dalga geçemeyiniz!</p>
-          <p style="color: var(--text-muted);">
-            Oyunumuzda tarz olarak <strong>MMO RPG</strong>'yi seçtik. Hem multiplayer hem de singleplayer seçenekleri sunan heyecan dolu projemiz çok yakında tamamlanacak.
-          </p>
+        <div style="background: rgba(0,85,255,0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--primary-blue); font-size: 14px; color: #fff; margin-bottom: 20px;">
+          🚀 <strong>Özellikler:</strong> 15+ Düşman Tipi, Dahili P2P/LAN Sunucu Altyapısı, Tamamen Kod Tabanlı Görsel Tasarım.
         </div>
 
-        <!-- WORLD HISTORY -->
-        <div class="project-card">
-          <span class="tag">Yapım Aşamasında</span>
-          <h3 class="project-title">World History</h3>
-          <p style="color: var(--text-muted);">
-            Oyunumuz başlıktaki gibi bir dünya tarihi oyunudur. 1913'ten itibaren başlayan haritalar ile çok gerçekçi multiplayer ve singleplayer deneyimi sunmaktadır.
-          </p>
+        <!-- GOOGLE DRIVE İNDİRME BUTONU -->
+        <div style="text-align: center;">
+          <a href="https://drive.google.com/file/d/1bJfex55gQgOrAVn-utJ6Z7mDc0kiOiXN/view?usp=sharing" target="_blank" class="btn-download">
+            📥 Neon Void İndir (Google Drive)
+          </a>
         </div>
-
-        <!-- ŞIRNAKCAM -->
-        <div class="project-card">
-          <span class="tag">Yapım Aşamasında</span>
-          <h3 class="project-title">Şırnakcam</h3>
-          <p style="color: var(--text-muted);">
-            Oyunumuzun isminde olduğu gibi; ya terörist olup JÖH ile ya da JÖH olup teröristler ile savaşıyorsunuz. Aksiyon dolu çatışmalar sizleri bekliyor.
-          </p>
-        </div>
-
-        <!-- AEGORCRAFT -->
-        <div class="project-card">
-          <span class="tag">Taslak Aşamasında</span>
-          <h3 class="project-title">Aegorcraft</h3>
-          <p style="color: var(--text-muted);">
-            Daha taslağını yeni attım olum ney benim geliştirici ekibim yok kendim yazıyom aynı anda veremiyoruz maalesef. Samet kod yazmaya yeltenirse belki hızlı gelebilir :)
-          </p>
-        </div>
-
-        <!-- KANLI KURULTAY -->
-        <div class="project-card">
-          <span class="tag">Yapım Aşamasında · Çok Oyunculu</span>
-          <h3 class="project-title">Kanlı Kurultay</h3>
-          <p style="color: var(--text-muted); margin-bottom: 16px;">
-            Orta çağ atmosferinde, kılıçlarla mücadele ettiğin tarayıcı tabanlı çok oyunculu arena oyunu.
-            Arenaya katıl, rakiplerinle savaş ve skor tablosunda yüksel.
-          </p>
-          <a href="http://aegorgames.duckdns.org" target="_blank" rel="noopener noreferrer" class="btn-launcher">Oyunu Oyna ↗</a>
-          <p style="color: var(--text-muted); font-size: 12px; margin-top: 10px;">aegorgames.duckdns.org</p>
-        </div>
-
       </div>
     </section>
 
