@@ -127,7 +127,7 @@
 
     /* CONTENT SECTIONS */
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px;
     }
@@ -284,20 +284,34 @@
     }
 
     /* PROJECTS SECTION */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      align-items: stretch;
+    }
+
     .project-card {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 30px;
+      padding: 25px;
       border: 2px solid var(--gold);
-      box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
-      max-width: 800px;
-      margin: 0 auto 30px auto;
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
     }
 
     .project-title {
       color: var(--gold);
-      font-size: 28px;
-      margin-bottom: 15px;
+      font-size: 24px;
+      margin-bottom: 12px;
       font-family: 'Cinzel', serif;
     }
 
@@ -311,21 +325,33 @@
       font-weight: 700;
       margin-bottom: 15px;
       border: 1px solid var(--gold);
+      align-self: flex-start;
+    }
+
+    .project-note {
+      background: rgba(0, 85, 255, 0.1);
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--primary-blue);
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 20px;
     }
 
     .btn-download {
-      display: inline-block;
+      display: block;
+      width: 100%;
+      text-align: center;
       background: linear-gradient(45deg, #00c853, #00897b);
       color: #fff;
-      padding: 14px 28px;
-      font-size: 16px;
+      padding: 12px 18px;
+      font-size: 14px;
       font-weight: 700;
       border-radius: 8px;
       text-decoration: none;
       border: 1px solid #69f0ae;
       box-shadow: 0 4px 15px rgba(0, 200, 83, 0.4);
       transition: all 0.3s ease;
-      margin-top: 10px;
     }
 
     .btn-download:hover {
@@ -335,10 +361,52 @@
 
     .download-buttons {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    /* PYTHON REQUIREMENT BOX */
+    .python-requirement-box {
+      margin-top: 35px;
+      background: rgba(18, 24, 36, 0.95);
+      border: 2px solid var(--gold);
+      border-left: 6px solid var(--primary-blue);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 85, 255, 0.25);
+    }
+
+    .python-requirement-box h3 {
+      color: var(--gold);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .python-requirement-box p {
+      color: var(--text-light);
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .btn-python {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--primary-blue), var(--deep-blue));
+      color: #fff;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 15px rgba(0, 85, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-python:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255, 204, 0, 0.5);
     }
 
     /* FOOTER */
@@ -351,6 +419,12 @@
       margin-top: 60px;
     }
 
+    @media (max-width: 992px) {
+      .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-container {
         flex-direction: column;
@@ -359,6 +433,9 @@
       nav ul {
         flex-wrap: wrap;
         justify-content: center;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -498,45 +575,81 @@
     <section id="projeler" class="page-section">
       <h2 class="section-title">PROJELERİMİZ</h2>
       
-      <div class="project-card">
-        <span class="tag">İlk Resmi Oyunumuz</span>
-        <h3 class="project-title">Neon Void</h3>
-        <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 16px;">
-          Aegor’un sıfırdan tamamen kodla geliştirdiği, dışarıdan hazır görsel veya ses dosyası kullanmadan hazırladığı epik neon uzay savaşı oyunu! 
-          Zengin düşman çeşitliliği, 7 dev boss, synth ses motoru, bloom efektleri ve 1v1 düello / puan yarışı gibi çevrimiçi modlar içerir.
-        </p>
-        
-        <div style="background: rgba(0,85,255,0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--primary-blue); font-size: 14px; color: #fff; margin-bottom: 20px;">
-          🚀 <strong>Özellikler:</strong> 15+ Düşman Tipi, Dahili P2P/LAN Sunucu Altyapısı, Tamamen Kod Tabanlı Görsel Tasarım.
+      <div class="projects-grid">
+        <!-- 1. PROJE -->
+        <div class="project-card">
+          <div>
+            <span class="tag">İlk Resmi Oyunumuz</span>
+            <h3 class="project-title">Neon Void</h3>
+            <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 15px;">
+              Aegor’un sıfırdan tamamen kodla geliştirdiği, dışarıdan hazır görsel veya ses dosyası kullanmadan hazırladığı epik neon uzay savaşı oyunu! 
+              Zengin düşman çeşitliliği, 7 dev boss, synth ses motoru, bloom efektleri ve 1v1 düello / puan yarışı gibi çevrimiçi modlar içerir.
+            </p>
+            
+            <div class="project-note">
+              🚀 <strong>Özellikler:</strong> 15+ Düşman Tipi, Dahili P2P/LAN Sunucu Altyapısı, Tamamen Kod Tabanlı Görsel Tasarım.
+            </div>
+          </div>
+
+          <div class="download-buttons">
+            <a href="https://drive.google.com/file/d/159ON0XEJcIXksMAOQENmSRnfmvwPhbsf/view?usp=sharing" target="_blank" class="btn-download">
+              📥 Neon Void İndir (Google Drive)
+            </a>
+            <a href="https://drive.google.com/file/d/1rdWZZBgedoT2JbIlbfMCc09If_yCz1ZH/view?usp=sharing" target="_blank" class="btn-download" style="background: linear-gradient(45deg, #0055ff, var(--deep-blue)); border-color: var(--gold);">
+              📱 APK İndir
+            </a>
+          </div>
         </div>
 
-        <!-- GOOGLE DRIVE İNDİRME BUTONLARI -->
-        <div class="download-buttons">
-          <a href="https://drive.google.com/file/d/159ON0XEJcIXksMAOQENmSRnfmvwPhbsf/view?usp=sharing" target="_blank" class="btn-download">
-            📥 Neon Void İndir (Google Drive)
-          </a>
-          <a href="https://drive.google.com/file/d/1rdWZZBgedoT2JbIlbfMCc09If_yCz1ZH/view?usp=sharing" target="_blank" class="btn-download" style="background: linear-gradient(45deg, #0055ff, var(--deep-blue)); border-color: var(--gold);">
-            📱 APK İndir
-          </a>
+        <!-- 2. PROJE -->
+        <div class="project-card">
+          <div>
+            <span class="tag">Yeni Proje</span>
+            <h3 class="project-title">Yarım Ay</h3>
+            <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 15px;">
+              AEGOR tarafından geliştirilen Yarım Ay projesi. Standart oyuncu sürümünün yanı sıra mod yapımcıları ve geliştiriciler için özel Developer (Mod Geliştirme) sürümü de indirilebilir durumdadır.
+            </p>
+          </div>
+
+          <div class="download-buttons">
+            <a href="https://drive.google.com/file/d/1yY6FDjuzBgcxRaRNt9yoSUOwA4XbuVwR/view?usp=sharing" target="_blank" class="btn-download">
+              📥 Yarım Ay İndir (Google Drive)
+            </a>
+            <a href="https://drive.google.com/file/d/1wyMGrl26Ei3bgwR9IMfnxwURnGM6Lhco/view?usp=sharing" target="_blank" class="btn-download" style="background: linear-gradient(45deg, #0055ff, var(--deep-blue)); border-color: var(--gold);">
+              🛠️ Developer (Mod Geliştirme Sürümü) İndir
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. PROJE -->
+        <div class="project-card">
+          <div>
+            <span class="tag">Yeni Oyun</span>
+            <h3 class="project-title">YARIM AY İNTİKAM PEŞİNDE</h3>
+            <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 15px;">
+              Babamızı öldüren Kara Kurt grubunun peşinden giderek ipucu toplayıp intikam almaya çalıştığımız aksiyon dolu hikâye oyunu.
+            </p>
+
+            <div class="project-note">
+              📝 <strong>Not:</strong> Cheat menüsü eklendi.
+            </div>
+          </div>
+
+          <div class="download-buttons">
+            <a href="https://drive.google.com/file/d/1GKETAX_4bdYLkbWkrAPXQgIKu6i295wq/view?usp=sharing" target="_blank" class="btn-download">
+              📥 Yarım Ay İntikam Peşinde İndir (Google Drive)
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="project-card">
-        <span class="tag">Yeni Proje</span>
-        <h3 class="project-title">Yarım Ay</h3>
-        <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 16px;">
-          AEGOR tarafından geliştirilen Yarım Ay projesi. Standart oyuncu sürümünün yanı sıra mod yapımcıları ve geliştiriciler için özel Developer (Mod Geliştirme) sürümü de indirilebilir durumdadır.
-        </p>
-
-        <!-- GOOGLE DRIVE İNDİRME BUTONLARI -->
-        <div class="download-buttons">
-          <a href="https://drive.google.com/file/d/1yY6FDjuzBgcxRaRNt9yoSUOwA4XbuVwR/view?usp=sharing" target="_blank" class="btn-download">
-            📥 Yarım Ay İndir (Google Drive)
-          </a>
-          <a href="https://drive.google.com/file/d/1wyMGrl26Ei3bgwR9IMfnxwURnGM6Lhco/view?usp=sharing" target="_blank" class="btn-download" style="background: linear-gradient(45deg, #0055ff, var(--deep-blue)); border-color: var(--gold);">
-            🛠️ Developer (Mod Geliştirme Sürümü) İndir
-          </a>
-        </div>
+      <!-- PYTHON GEREKSİNİM NOTU VE İNDİRME LİNKİ -->
+      <div class="python-requirement-box">
+        <h3>⚠️ ÖNEMLİ NOT: OYUNLARI ÇALIŞTIRMAK İÇİN PYTHON GEREKLİDİR</h3>
+        <p>Tüm oyunlarımızın bilgisayarınızda sorunsuz açılması ve çalışması için lütfen öncelikle <strong>Python</strong>'u indirip kurun.</p>
+        <a href="https://www.python.org/ftp/python/pymanager/python-manager-26.4.msix" target="_blank" class="btn-python">
+          🐍 Python İndir (Resmi Kurulum Dosyası)
+        </a>
       </div>
     </section>
 
