@@ -308,6 +308,11 @@
       box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
     }
 
+    /* Yarım Ay'ın tam altına gelecek kart için sütun hizalaması */
+    .yarim-ay-alt {
+      grid-column: 2;
+    }
+
     .project-title {
       color: var(--gold);
       font-size: 24px;
@@ -422,6 +427,9 @@
     @media (max-width: 992px) {
       .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      .yarim-ay-alt {
+        grid-column: auto;
       }
     }
 
@@ -604,10 +612,10 @@
         <!-- 2. PROJE -->
         <div class="project-card">
           <div>
-            <span class="tag">Yeni Proje</span>
+            <span class="tag">Oyun</span>
             <h3 class="project-title">Yarım Ay</h3>
             <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 15px;">
-              AEGOR tarafından geliştirilen Yarım Ay projesi. Standart oyuncu sürümünün yanı sıra mod yapımcıları ve geliştiriciler için özel Developer (Mod Geliştirme) sürümü de indirilebilir durumdadır.
+              Yarım Ay evreninde yaratıkların içinde köy köy gezip takas yapıp zindan bitirdiğimiz bir oyun. Standart oyuncu sürümünün yanı sıra mod yapımcıları ve geliştiriciler için özel Developer (Mod Geliştirme) sürümü de indirilebilir durumdadır.
             </p>
           </div>
 
@@ -638,6 +646,23 @@
           <div class="download-buttons">
             <a href="https://drive.google.com/file/d/1GKETAX_4bdYLkbWkrAPXQgIKu6i295wq/view?usp=sharing" target="_blank" class="btn-download">
               📥 Yarım Ay İntikam Peşinde İndir (Google Drive)
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. PROJE (YARIM AY'IN TAM ALTINDA) -->
+        <div class="project-card yarim-ay-alt">
+          <div>
+            <span class="tag">Yeni Oyun</span>
+            <h3 class="project-title">YARIM AY KARAKURTUN YÜKSELİŞİ</h3>
+            <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 15px;">
+              İlk oyunda öldürülen adamın oğlu Tuğrul, babasının intikamını almak ve Kara Kurt teşkilatını yeniden kurmak için harekete geçer. Oyuncu, Tuğrul'un yükselişini durdurmak ve bölgeyi yeniden savaşa sürüklenmekten kurtarmak zorundadır. Hikâye, Tuğrul'un kaderini belirleyen üç farklı finalle sona erer.
+            </p>
+          </div>
+
+          <div class="download-buttons">
+            <a href="https://drive.google.com/file/d/1wTnUQLXQtRqZy4Z5_12FGJNHpAMoPn6T/view?usp=sharing" target="_blank" class="btn-download">
+              📥 Yarım Ay Karakurtun Yükselişi İndir (Google Drive)
             </a>
           </div>
         </div>
