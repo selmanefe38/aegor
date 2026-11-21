@@ -291,6 +291,19 @@
       align-items: stretch;
     }
 
+    /* Alt satırdaki 2 oyunu ortanın 6px solu ve 6px sağı (toplam 12px boşluk) olacak şekilde ortalar */
+    .projects-bottom-row {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 12px; /* Merkez çizgisinden 6px sola, 6px sağa mesafe */
+      margin-top: 25px;
+    }
+
+    .projects-bottom-row .project-card {
+      width: calc((100% - 50px) / 3); /* Üstteki 3'lü kartlarla birebir aynı genişlik */
+    }
+
     .project-card {
       background: var(--card-bg);
       border-radius: 12px;
@@ -306,11 +319,6 @@
     .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
-    }
-
-    /* Yarım Ay'ın tam altına gelecek kart için sütun hizalaması */
-    .yarim-ay-alt {
-      grid-column: 2;
     }
 
     .project-title {
@@ -428,8 +436,13 @@
       .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
-      .yarim-ay-alt {
-        grid-column: auto;
+      .projects-bottom-row {
+        flex-wrap: wrap;
+        gap: 25px;
+      }
+      .projects-bottom-row .project-card {
+        width: calc(50% - 12.5px);
+        min-width: 300px;
       }
     }
 
@@ -444,6 +457,9 @@
       }
       .projects-grid {
         grid-template-columns: 1fr;
+      }
+      .projects-bottom-row .project-card {
+        width: 100%;
       }
     }
   </style>
@@ -552,14 +568,14 @@
       <h3 class="sub-title">Çalışanlar</h3>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-avatar">⭐</div>
+          <div class="team-avatar">💻</div>
           <div class="team-name">Ahmet Batuhan Kurt</div>
-          <div class="team-role">Kıdemli Üye</div>
+          <div class="team-role">Yazılımcı</div>
         </div>
         <div class="team-card">
-          <div class="team-avatar">⚙️</div>
+          <div class="team-avatar">🧪</div>
           <div class="team-name">Abdulsamet Aydoğdu</div>
-          <div class="team-role">Ekip Üyesi (Cezalı: Garı kız peşinde koşmaktan şirketi astı!)</div>
+          <div class="team-role">Tester</div>
         </div>
       </div>
 
@@ -583,6 +599,7 @@
     <section id="projeler" class="page-section">
       <h2 class="section-title">PROJELERİMİZ</h2>
       
+      <!-- ÜST SATIR (3 OYUN) -->
       <div class="projects-grid">
         <!-- 1. PROJE -->
         <div class="project-card">
@@ -649,9 +666,12 @@
             </a>
           </div>
         </div>
+      </div>
 
-        <!-- 4. PROJE (YARIM AY'IN TAM ALTINDA) -->
-        <div class="project-card yarim-ay-alt">
+      <!-- ALT SATIR (ORTANIN 6PX SOLU VE 6PX SAĞI OLACAK ŞEKİLDE HİZALI 2 OYUN) -->
+      <div class="projects-bottom-row">
+        <!-- 4. PROJE -->
+        <div class="project-card">
           <div>
             <span class="tag">Yeni Oyun</span>
             <h3 class="project-title">YARIM AY KARAKURTUN YÜKSELİŞİ</h3>
@@ -663,6 +683,23 @@
           <div class="download-buttons">
             <a href="https://drive.google.com/file/d/1wTnUQLXQtRqZy4Z5_12FGJNHpAMoPn6T/view?usp=sharing" target="_blank" class="btn-download">
               📥 Yarım Ay Karakurtun Yükselişi İndir (Google Drive)
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. PROJE (YENİ EKLENEN) -->
+        <div class="project-card">
+          <div>
+            <span class="tag">Yeni Oyun</span>
+            <h3 class="project-title">YARIM-AY: SON SANCAK</h3>
+            <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 15px;">
+              Kara Kurt'un büyük ordusu teslim olmuş, Tuğrul hapse atılmıştır. Ancak dağlarda kalan son askerler, liderlerini kurtarmak ve Kara Kurt'u yeniden yükseltmek için harekete geçer. Serinin bu son oyununda oyuncuyu dört farklı final ve kaderi değiştirecek kararlar bekliyor.
+            </p>
+          </div>
+
+          <div class="download-buttons">
+            <a href="https://drive.google.com/file/d/17Jl1-eP99v3o-ZZ-1lAjzm38JoBAVTe9/view?usp=sharing" target="_blank" class="btn-download">
+              📥 Yarım-Ay: Son Sancak İndir (Google Drive)
             </a>
           </div>
         </div>
